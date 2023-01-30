@@ -1,0 +1,33 @@
+
+.card-menu{
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1E1111;
+}
+
+.card-menu label{
+    background-color: #1E1111;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-menu a{
+    width: 80px;
+    padding: 2px 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1E1111;
+    background-color: #fff;
+    transition: ease-in 0.5s;
+}
+
+.card-menu a:hover{
+    background-color: #D9D9D9;
+}
