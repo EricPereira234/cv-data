@@ -25,9 +25,11 @@
     font-family: Arial, Helvetica, sans-serif;
     color: #1E1111;
     background-color: #fff;
+    border: 1px solid #fff;
     transition: ease-in 0.5s;
 }
 
 .card-menu a:hover{
-    background-color: #D9D9D9;
+    border: 1px solid #1E1111;
+    box-shadow: 1px 1px 5px #fff;
 }

@@ -1,0 +1,39 @@
+.menu-dashboard {
+    width: 80%;
+    height: 50px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    background-color: #000;
+}
+
+.menu-dashboard label {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    background-color: #000;
+}
+
+.menu-dashboard a {
+    background-color: #000;
+}
+
+.menu-dashboard svg {
+    background-color: #000;
+}
+
+.menu-dashboard button {
+    width: 80px;
+    padding: 5px 0;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: ease-in 0.5s;
+}
+
+.menu-dashboard button:hover {
+    background-color: #ccc;
+}

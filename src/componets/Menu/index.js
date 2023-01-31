@@ -5,7 +5,7 @@ export default function Menu(){
     return (
         <div className="card-menu" >
             <label>Aniversariante do Mês</label>
-            <Link to={'/'} >Login</Link>
+            <Link to={'/login'} >Login</Link>
         </div>
     )
 }
