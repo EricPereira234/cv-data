@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Deshboard from "./pages/Dashboard";
+import New from "./pages/New";
+import Private from "./Private";
 
 export default function Rotas(){
     return(
@@ -11,7 +13,8 @@ export default function Rotas(){
             <Routes>
                 <Route path="/" element={<Home/>} />
                 <Route path="/login" element={<Login/>} />
-                <Route path="/dashboard" element={<Deshboard/>} />
+                <Route path="/dashboard" element={ <Private><Deshboard/></Private> } />
+                <Route path="/new" element={<Private><New/></Private>} />
             </Routes>
         </Router>
     )

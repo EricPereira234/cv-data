@@ -5,20 +5,20 @@ import { auth } from "../../services/firebaseConnection";
 import { signOut } from "firebase/auth";
 
 //importando icones
-import {AiOutlinePlusCircle} from "react-icons/ai";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 
-export default function Deshboard(){
+export default function Deshboard() {
 
-    async function logout(){
+    async function logout() {
         await signOut(auth)
-      }
+    }
 
-    return(
+    return (
         <>
             <div className="menu-dashboard">
                 <label>Deshboard</label>
-                <Link to={'/'} ><AiOutlinePlusCircle size={25} color={'#fff'} /></Link>
+                <Link to={'/new'} ><AiOutlinePlusCircle size={25} color={'#fff'} /></Link>
                 <button onClick={logout} >Sair</button>
             </div>
             <div className="card-home" >
