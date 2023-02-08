@@ -6,6 +6,7 @@
     justify-content: space-between;
     align-items: center;
     margin: auto;
+    margin-bottom: 20px;
     background-color: #000;
 }
 
@@ -36,4 +37,31 @@
 
 .menu-dashboard button:hover {
     background-color: #ccc;
+}
+
+.card-home-dashboard article {
+    width: 80%;
+    margin: auto;
+    margin-top: 1px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.card-home-dashboard p {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-home-dashboard button {
+    margin: 0 10px;
+    border: 0;
+}
+
+.card-home-dashboard svg{
+    background-color: #fff;
 }

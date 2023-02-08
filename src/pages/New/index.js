@@ -1,7 +1,7 @@
 import "./new.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 import { db, auth } from "../../services/firebaseConnection";
 import { signOut } from "firebase/auth";
@@ -20,27 +20,27 @@ export default function New() {
     }
 
 
-     //função que salva os links
-     async function SalvaRegitro(e) {
+    //função que salva os links
+    async function SalvaRegitro(e) {
         e.preventDefault();
 
-        if(nameInput === '' || dateInput === ''){
+        if (nameInput === '' || dateInput === '') {
             toast.error('Preencha todos os campos');
             return;
         }
 
-    
+
 
         addDoc(collection(db, "aniversariantes"), {
             name: nameInput,
             data: dateInput,
             created: new Date(),
-        }).then(()=>{
+        }).then(() => {
             setNameInput('');
             setDateInput('');
             toast.success('salvo com sucesso!');
-        }).catch((err)=>{
-            toast.error('que pena não salvou !')
+        }).catch((err) => {
+            toast.error('que pena não salvou !');
         })
     }
 
@@ -56,9 +56,14 @@ export default function New() {
                 <div className="card-form-new" >
                     <form onSubmit={SalvaRegitro} >
                         <h1>Novo Aniversariante</h1>
-                        <input type={'date'} />
-                        <input type={'text'} placeholder={'nome'} 
-                            onChange={(e)=>setNameInput(e.target.value)}
+                        <input type={'date'}
+                            value={dateInput}
+                            onChange={(e) => setDateInput(e.target.value)}
+                        />
+
+                        <input type={'text'} placeholder={'nome'}
+                            value={nameInput}
+                            onChange={(e) => setNameInput(e.target.value)}
                         />
                         <button type={'submit'}>Salvar</button>
                     </form>
