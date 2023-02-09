@@ -2,8 +2,8 @@ import "./home.css";
 import { useState, useEffect } from "react";
 
 
-import { db, auth } from "../../services/firebaseConnection";
-import { addDoc, collection, onSnapshot, query, orderBy, doc, deleteDoc } from "firebase/firestore";
+import { db } from "../../services/firebaseConnection";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 
 
 
@@ -17,19 +17,22 @@ export default function Home() {
     let dia = data.getDate()
     let mes = data.getMonth();
     let dataFormatada;
-     
+
     if (dia < 10 || mes < 10) {
-        dataFormatada = data.getFullYear() + "/" + 0 +((data.getMonth() + 1)) + "/" + 0 + ((data.getDate())); 
+        dataFormatada = data.getFullYear() + "/" + 0 + ((data.getMonth() + 1)) + "/" + 0 + ((data.getDate()));
     } else {
-        dataFormatada = data.getFullYear() + "/" + ((data.getMonth() + 1)) + "/" + ((data.getDate())); 
+        dataFormatada = data.getFullYear() + "/" + ((data.getMonth() + 1)) + "/" + ((data.getDate()));
     }
 
-   
 
-    //alert(dataFormatada);
+
+
+
+
 
     //buscando registros no firestory
     const [links, setLikis] = useState([]);
+
 
     useEffect(() => {
 
@@ -53,11 +56,37 @@ export default function Home() {
 
     }, []);
 
+
+    //buscando o aniversariante do dia
+    const hoje = new Date(dataFormatada)
+    const list = [];
+    links.map(item => {
+        const birth = new Date(item.data);
+        if (birth.getDate() === (hoje.getDate() - 1) && birth.getMonth() === hoje.getMonth()) {
+            list.push({ name: item.name, data: item.data });
+        }
+
+    })
+
+    
+
+
+
+
     return (
         <>
             <Menu />
             <div className="card-home" >
+                <h1>Hoje</h1>
 
+                {list.map((item, index) => (
+                    <div className="card-home-niver" >
+                      
+                            <h3>{item.name} - <label>{item.data}</label></h3>
+                            
+                    </div>
+
+                ))}
             </div>
 
         </>

@@ -55,3 +55,12 @@
     color: #fff;
     background-color: #000;
 }
+
+
+/* tela menor */
+
+@media screen  and (max-width: 780px) {
+    .card-new {
+        width: 90%;
+    }
+}

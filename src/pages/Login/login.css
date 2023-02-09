@@ -71,3 +71,16 @@
 .card-login button:hover{
     background-color: #f5bb1d;
 }
+
+
+/* tela menor */
+
+@media screen  and (max-width: 580px) {
+    .card{
+        width: 100%;
+    }
+    .card-login {
+        width: 90%;
+        margin: auto;
+    }
+}

@@ -24,7 +24,7 @@ export default function Deshboard() {
     //função de deletar do banco
     async function Deletar(id) {
       
-        let r =  prompt();
+        let r =  prompt('Cuidado ! para excluir digite SIM!');
 
         if (r === 'sim') {
             const docRef = doc(db, "aniversariantes", id);
