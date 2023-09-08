@@ -20,6 +20,13 @@
     background-color: #000;
 }
 
+.card-home-dashboard label {
+    margin-left: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ccc;
+}
+
 .menu-dashboard a {
     background-color: #000;
 }

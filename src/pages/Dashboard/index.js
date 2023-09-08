@@ -65,6 +65,7 @@ export default function Deshboard() {
     }, []);
 
 
+
     return (
         <>
             <div className="menu-dashboard">
@@ -78,6 +79,7 @@ export default function Deshboard() {
 
                     <article>
                         <p>{item.name}
+                        <label>{item.data}</label>
                             <button onClick={()=>Deletar(item.id)} >
                                 <RiDeleteBin6Fill size={15} />
                             </button>

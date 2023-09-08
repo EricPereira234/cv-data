@@ -82,7 +82,7 @@ export default function Home() {
                 {list.map((item, index) => (
                     <div className="card-home-niver" >
                       
-                            <h3>{item.name}  <label></label> </h3>
+                            <h3>{item.name}  <label>🥳</label> </h3>
                             
                     </div>
 
