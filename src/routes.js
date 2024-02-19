@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Deshboard from "./pages/Dashboard";
 import New from "./pages/New";
 import List from "./pages/List";
+import NewSocio from "./pages/List/newSocio";
 import Private from "./Private";
 
 export default function Rotas() {
@@ -17,6 +18,7 @@ export default function Rotas() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/dashboard" element={<Private><Deshboard /></Private>} />
                 <Route path="/new" element={<Private><New /></Private>} />
+                <Route path="/newSocio" element={<Private><NewSocio /></Private>} />
             </Routes>
         </Router>
     )
