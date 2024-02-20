@@ -91,6 +91,33 @@
     border-radius: 4px;
 }
 
+/** Painel List*/
+.cardGeralList{
+    width: 100%;
+    background-color: #fff;
+}
+.cardPainel{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.labelPainelList{
+    width: 100%;
+    display: flex;
+    margin: 5px 0;
+}
+
+
+.buttonEx{
+    color: brown;
+    margin-left: 20px;
+}
+
+
 @media screen and (max-width: 426px){
     .cardList{
         margin: 12px 0;

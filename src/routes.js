@@ -7,6 +7,7 @@ import Deshboard from "./pages/Dashboard";
 import New from "./pages/New";
 import List from "./pages/List";
 import NewSocio from "./pages/List/newSocio";
+import PainelList from "./pages/List/painelList";
 import Private from "./Private";
 
 export default function Rotas() {
@@ -19,6 +20,7 @@ export default function Rotas() {
                 <Route path="/dashboard" element={<Private><Deshboard /></Private>} />
                 <Route path="/new" element={<Private><New /></Private>} />
                 <Route path="/newSocio" element={<Private><NewSocio /></Private>} />
+                <Route path="/painelList" element={<Private><PainelList /></Private>} />
             </Routes>
         </Router>
     )
