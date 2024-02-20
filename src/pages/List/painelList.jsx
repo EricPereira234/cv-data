@@ -1,6 +1,8 @@
 import styles from "./list.module.css";
 import React, { useState, useEffect } from "react";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
+
+import { IoIosSearch } from "react-icons/io";
 
 
 import { db, auth } from "../../services/firebaseConnection";
@@ -11,6 +13,7 @@ import { addDoc, collection, onSnapshot, query, orderBy, doc, deleteDoc } from "
 
 
 export default function PainelList() {
+    const [filterSocio, setFilterSocio] = useState('');
 
     //buscando registros no firestory
     const [links, setLikis] = useState([]);
@@ -37,9 +40,12 @@ export default function PainelList() {
         })
 
     }, []);
-    
+
+    // aqui é a parte do código que filtra os dados de acordo com o imput 
+    const filteredLinks = links.filter(item => item.name.includes(filterSocio));
+
     // ordenando pela letra do alfabeto com base na propriedade nome
-    links.sort((a, b)=> a.name.localeCompare(b.name));
+    filteredLinks.sort((a, b) => a.name.localeCompare(b.name));
 
 
     //função de deletar do banco
@@ -61,10 +67,15 @@ export default function PainelList() {
     return (
         <div className={styles.cardGeralList} >
 
+            <div className={styles.cardInputSearch} >
+                <input type="text" placeholder="Search"  onChange={(e)=>setFilterSocio(e.target.value)} />
+                <IoIosSearch size={25}/>
+            </div>
+
             <div className={styles.cardPainel} >
-                {links.map(item => {
+                {filteredLinks.map(item => {
                     return (
-                        <label className={styles.labelPainelList} >cod: {item.numero} {item.name}   <div className={styles.buttonEx} onClick={()=>Deletar(item.id)}  >[ex]</div> </label>
+                        <label className={styles.labelPainelList} >cod: {item.numero} {item.name}   <div className={styles.buttonEx} onClick={() => Deletar(item.id)}  >[ex]</div> </label>
                     )
                 })}
             </div>

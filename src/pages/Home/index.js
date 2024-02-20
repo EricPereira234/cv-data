@@ -19,9 +19,9 @@ export default function Home() {
     let dataFormatada;
 
     if (dia < 10 || mes < 10) {
-        dataFormatada = data.getFullYear() + "/" + 0 + ((data.getMonth() )+1) + "/" + 0 + ((data.getDate()));
+        dataFormatada = data.getFullYear() + "/" + 0 + ((data.getMonth()) + 1) + "/" + 0 + ((data.getDate()));
     } else {
-        dataFormatada = data.getFullYear() + "/" + ((data.getMonth())+1) + "/" + ((data.getDate()));
+        dataFormatada = data.getFullYear() + "/" + ((data.getMonth()) + 1) + "/" + ((data.getDate()));
     }
 
 
@@ -62,33 +62,58 @@ export default function Home() {
     const list = [];
     links.map(item => {
         const birth = new Date(item.data);
-        if (birth.getDate() === (hoje.getDate()-1) && birth.getMonth() === hoje.getMonth()) {
+        if (birth.getDate() === (hoje.getDate() - 1) && birth.getMonth() === hoje.getMonth()) {
             list.push({ name: item.name, data: item.data });
         }
 
     })
 
+
+
+    //buscando o aniversariante do mês
+    const hoje2 = new Date(dataFormatada)
+    const list2 = [];
+    links.map(item => {
+        const birth = new Date(item.data);
+        if (birth.getMonth() === hoje.getMonth()) {
+            list2.push({ name: item.name, data: item.data });
+        }
+
+    })
     
 
 
 
 
+
     return (
-        <>
+        <div>
             <Menu />
             <div className="card-home" >
-                <h1>Hoje</h1>
-
+                <h1>aniversariante do dia</h1>
                 {list.map((item, index) => (
                     <div className="card-home-niver" >
-                      
-                            <h3>{item.name}  <label>🥳</label> </h3>
-                            
+
+                        <h3>{item.name}  <label>🥳</label> </h3>
+
+                    </div>
+
+                ))}
+
+            </div>
+
+            <div className="card-home2" >
+                <h1>aniversariantes do mês</h1>
+                {list2.map((item, index) => (
+                    <div  >
+
+                        <h4>{item.name} - {item.data} </h4>
+
                     </div>
 
                 ))}
             </div>
 
-        </>
+        </div>
     )
 }

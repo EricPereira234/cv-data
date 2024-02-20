@@ -35,3 +35,18 @@
     font-size: 15px;
     color: #ccc;
 }
+
+.card-home2{
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    background-color: #fff;
+}
+.card-home2 h1 {
+    color: #ccc;
+    font-size: 20px;
+}

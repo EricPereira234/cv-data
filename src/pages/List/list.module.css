@@ -96,6 +96,29 @@
     width: 100%;
     background-color: #fff;
 }
+.cardInputSearch{
+    width: 100%;
+    height: 40px;
+    margin: auto;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background-color: #000;
+}
+.cardInputSearch svg{
+    color: #000;
+    background-color: #fff;
+    margin-right: 30px;
+}
+.cardGeralList input {
+    width: 300px;
+    height: 23px;
+    font-size: 18px;
+    padding: 1px 5px;
+    border: none;
+    outline: none;
+}
 .cardPainel{
     width: 90%;
     margin: auto;
