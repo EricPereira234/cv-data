@@ -20,7 +20,7 @@ export default function Rotas() {
                 <Route path="/dashboard" element={<Private><Deshboard /></Private>} />
                 <Route path="/new" element={<Private><New /></Private>} />
                 <Route path="/newSocio" element={<Private><NewSocio /></Private>} />
-                <Route path="/painelList" element={<Private><PainelList /></Private>} />
+                <Route path="/painelist" element={<Private><PainelList /></Private>} />
             </Routes>
         </Router>
     )

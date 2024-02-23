@@ -71,6 +71,7 @@ export default function Deshboard() {
             <div className="menu-dashboard">
                 <label>Deshboard</label>
                 <Link to={'/newSocio'} >Novo Sócio</Link>
+                <Link to={'/painelist'} >PainelList</Link>
                 <Link to={'/new'} ><AiOutlinePlusCircle size={25} color={'#fff'} /></Link>
                 <button onClick={logout} >Sair</button>
             </div>
