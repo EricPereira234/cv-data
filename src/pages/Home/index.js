@@ -71,16 +71,17 @@ export default function Home() {
 
 
     //buscando o aniversariante do mês
-    const hoje2 = new Date(dataFormatada)
     const list2 = [];
     links.map(item => {
         const birth = new Date(item.data);
         if (birth.getMonth() === hoje.getMonth()) {
-            list2.push({ name: item.name, data: item.data });
+            list2.push({ name: item.name, data: birth.getDate() + 1 });
         }
 
     })
-    
+
+    // ordenando numericamente apartir do campo item.data
+    list2.sort((a, b) => a.data - b.data);
 
 
 
@@ -92,6 +93,7 @@ export default function Home() {
             <div className="card-home" >
                 <h1>aniversariante do dia</h1>
                 {list.map((item, index) => (
+
                     <div className="card-home-niver" >
 
                         <h3>{item.name}  <label>🥳</label> </h3>
@@ -105,9 +107,13 @@ export default function Home() {
             <div className="card-home2" >
                 <h1>aniversariantes do mês</h1>
                 {list2.map((item, index) => (
-                    <div  >
 
-                        <h4>{item.name} - {item.data} </h4>
+                    <div className="card-item-todos-do-mes" >
+
+                        <div className="item-todos-do-mes" >
+                            <div className="item-todos-do-mes-name">{item.name}</div> 
+                            <div className="item-todos-do-mes-dia">{item.data}</div>
+                        </div>
 
                     </div>
 

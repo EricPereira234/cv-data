@@ -43,10 +43,46 @@
     padding: 0 20px;
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    align-items: left;
     background-color: #fff;
 }
 .card-home2 h1 {
     color: #ccc;
     font-size: 20px;
+}
+
+.card-item-todos-do-mes{
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.item-todos-do-mes{
+    width: 100%;
+    display: flex;
+}
+
+.item-todos-do-mes-name{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.item-todos-do-mes-dia{
+    font-size: 15px;
+    font-weight: bold;
+    color: brown;
+}
+
+
+@media screen and (max-width: 426px) {
+    .item-todos-do-mes{
+        margin: 3px 0;
+        padding: 0 3px;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f5f5f5;
+       
+    }
 }
