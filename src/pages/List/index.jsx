@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import styles from "./list.module.css";
 
 
+//importando arquivo interno
+import AvisoNiver from "../../componets/AvisoNiver";
+
 import { db, auth } from "../../services/firebaseConnection";
 import { addDoc, collection, onSnapshot, query, orderBy, doc, deleteDoc } from "firebase/firestore";
 
@@ -43,6 +46,7 @@ export default function List() {
             <div className={styles.cardMenu} >
                 <Link to={'/niver'}>Aniversariantes</Link>
             </div>
+            <AvisoNiver />
             <div className={styles.cardList} >
                 {links.map(item => {
                     return (
