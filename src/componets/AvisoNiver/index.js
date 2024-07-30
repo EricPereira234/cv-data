@@ -9,6 +9,32 @@ import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 
 const AvisoNiver = () => {
 
+    //buscando registros no firestory
+    const [links, setLikis] = useState([]);
+
+
+    useEffect(() => {
+
+        const linksRef = collection(db, "aniversariantes");
+        const queryRef = query(linksRef, orderBy("created", "asc"));
+
+        const unsub = onSnapshot(queryRef, (snapshot) => {
+            let lista = [];
+            snapshot.forEach((doc) => {
+                lista.push({
+                    id: doc.id,
+                    name: doc.data().name,
+                    data: doc.data().data,
+
+                })
+            })
+
+            setLikis(lista);
+
+        })
+
+    }, []);
+
     let data = new Date();
     let dia = data.getDate()
     let mes = data.getMonth();
@@ -21,52 +47,32 @@ const AvisoNiver = () => {
     }
 
 
-    //buscando registros no firestory
-    const [links, setLikis] = useState([]);
-
-
-    useEffect(() => {
-
-        const linksRef = collection(db, "socios");
-        const queryRef = query(linksRef, orderBy("created", "asc"));
-
-        const unsub = onSnapshot(queryRef, (snapshot) => {
-            let lista = [];
-            snapshot.forEach((doc) => {
-                lista.push({
-                    id: doc.id,
-                    name: doc.data().name,
-                    numero: doc.data().numero,
-
-                })
-            })
-
-            setLikis(lista);
-
-        })
-
-    }, []);
-
-
     //buscando o aniversariante do dia
     const hoje = new Date(dataFormatada)
     const list = [];
     links.map(item => {
         const birth = new Date(item.data);
         if (birth.getDate() === (hoje.getDate() - 1) && birth.getMonth() === hoje.getMonth()) {
-            list.push({ name: item.name, data: item.data });
+            list.push({ data: item.data });
         }
 
     })
 
+
     const [ativaAviso, setAtivaAviso] = useState(false)
-    useEffect(()=>{
-        setAtivaAviso(true);
-    },[list])
+    useEffect(() => {
+        if (list.length == []) {
+            setAtivaAviso(false);
+            return;
+        } else {
+            setAtivaAviso(true);
+        }
+    }, [list])
+
 
 
     return (
-      ativaAviso ?  <div className={styles.cardAvisoNiver} ><span className={styles.textoPiscante}>hoje tem aniversariante </span> </div>  :  <div></div>
+        ativaAviso ? <div className={styles.cardAvisoNiver} ><span className={styles.textoPiscante}>hoje tem aniversariante </span> </div> : <div></div>
     )
 }
 

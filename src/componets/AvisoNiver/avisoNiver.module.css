@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red, violet);
+    background: linear-gradient(to right, #D7336F, #F58529, #F7C2A7, #F5F5F5, #F3A300, #DD2A7B, orange, #D700F1, #F8D26D);
 }
 
 @keyframes piscar {
