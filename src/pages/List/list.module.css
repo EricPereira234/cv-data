@@ -9,16 +9,41 @@
 }
 .cardMenu{
     width: 90%;
-    height: 30px;
+    height: 60px;
     background-color: #000;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+.cardMeuAreasIcones{
+    width: 100px;
+    height: 75%;
+    padding: 2px;
+    margin: auto;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #252525;
+}
+
+.cardMeuAreasIcones svg {
+    font-size: 12px;
 }
 
 .cardMenu a{
+    font-size: 8px;
+    margin-top: 3px;
+    text-transform: uppercase;
     text-decoration: none;
+    text-align: center;
     color: #fff;
+    white-space: normal; /* Isso permite que o texto dentro do link seja quebrado */
+    word-wrap: break-word; /* Caso o texto no link seja longo, ele vai quebrar para a linha seguinte */
 }
 
 .cardList{

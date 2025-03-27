@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./list.module.css";
-
+import { FaBirthdayCake } from "react-icons/fa";
 
 //importando arquivo interno
 import AvisoNiver from "../../componets/AvisoNiver";
@@ -44,7 +44,12 @@ export default function List() {
     return (
         <div className={styles.cardArea} >
             <div className={styles.cardMenu} >
-                <Link to={'/niver'}>Aniversariantes</Link>
+                
+                <div className={styles.cardMeuAreasIcones} >
+                    <FaBirthdayCake color="#fff" />
+                    <Link to={'/niver'}>ver aniversariantes do mês</Link>
+                </div>
+
             </div>
             <AvisoNiver />
             <div className={styles.cardList} >
