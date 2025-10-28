@@ -1,3 +1,165 @@
+      /* ======= pagina da lista dos sócios ======= */
+
+/* ===== CONTAINER GERAL ===== */
+.container {
+  min-height: 100vh;
+  background: #e2effc;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", "Poppins", sans-serif;
+}
+
+/* ===== CABEÇALHO ===== */
+.header {
+  background: linear-gradient(135deg, #0077cc, #005fa3);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.linkNiver {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.linkNiver:hover {
+  text-decoration: underline;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.main {
+  flex: 1;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== LISTA ===== */
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+}
+
+.listItem:hover {
+  transform: scale(1.01);
+  background: #f0f8ff;
+  box-shadow: 0 3px 10px rgba(0, 118, 204, 0.1);
+}
+
+/* ===== AVATAR (CÍRCULO INICIAL) ===== */
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #0077cc;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 119, 204, 0.3);
+}
+
+/* ===== INFORMAÇÕES ===== */
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 2px;
+  word-break: break-word;
+}
+
+.code {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* ===== MENSAGEM VAZIA ===== */
+.empty {
+  text-align: center;
+  color: #888;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 600px) {
+  .main {
+    padding: 1rem;
+  }
+
+  .listItem {
+    margin-left: -12px;
+    padding: 0.8rem;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+
+  .code {
+    font-size: 0.8rem;
+  }
+
+  .title {
+    font-size: 1.15rem;
+  }
+}
+
+
+
+
+
+
+
+      /* ======= pagina PainelList ======= */
+
+
 .cardGeralList {
   display: flex;
   flex-direction: column;

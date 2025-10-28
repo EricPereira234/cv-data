@@ -2,65 +2,69 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./list.module.css";
 import { FaBirthdayCake } from "react-icons/fa";
-
-//importando arquivo interno
 import AvisoNiver from "../../componets/AvisoNiver";
 
-import { db, auth } from "../../services/firebaseConnection";
-import { addDoc, collection, onSnapshot, query, orderBy, doc, deleteDoc } from "firebase/firestore";
+import { db } from "../../services/firebaseConnection";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 
 export default function List() {
+  const [links, setLinks] = useState([]);
 
-    //buscando registros no firestory
-    const [links, setLikis] = useState([]);
+  useEffect(() => {
+    const linksRef = collection(db, "socios");
+    const queryRef = query(linksRef, orderBy("created", "asc"));
 
+    const unsub = onSnapshot(queryRef, (snapshot) => {
+      let lista = [];
+      snapshot.forEach((doc) => {
+        lista.push({
+          id: doc.id,
+          name: doc.data().name,
+          numero: doc.data().numero,
+        });
+      });
+      setLinks(lista);
+    });
 
-    useEffect(() => {
+    return () => unsub();
+  }, []);
 
-        const linksRef = collection(db, "socios");
-        const queryRef = query(linksRef, orderBy("created", "asc"));
+  const sortedLinks = [...links].sort((a, b) => a.name.localeCompare(b.name));
 
-        const unsub = onSnapshot(queryRef, (snapshot) => {
-            let lista = [];
-            snapshot.forEach((doc) => {
-                lista.push({
-                    id: doc.id,
-                    name: doc.data().name,
-                    numero: doc.data().numero,
-
-                })
-            })
-
-            setLikis(lista);
-
-        })
-
-    }, []);
-
-    // Ordenar o array com base na propriedade 'name' e colocar em ordem alfabética
-    links.sort((a, b) => a.name.localeCompare(b.name));
-
-
-    return (
-        <div className={styles.cardArea} >
-            <div className={styles.cardMenu} >
-                
-                <div className={styles.cardMeuAreasIcones} >
-                    <FaBirthdayCake color="#fff" />
-                    <Link to={'/niver'}>ver aniversariantes do mês</Link>
-                </div>
-
-            </div>
-            <AvisoNiver />
-            <div className={styles.cardList} >
-                {links.map(item => {
-                    return (
-                        <label>{item.name}</label>
-                    )
-                })}
-
-
-            </div>
+  return (
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <div className={styles.headerContent}>
+          <FaBirthdayCake size={20} color="#fff" />
+          <Link to="/niver" className={styles.linkNiver}>
+            Ver aniversariantes do mês
+          </Link>
         </div>
-    )
+      </header>
+
+      <main className={styles.main}>
+        <AvisoNiver />
+
+        <h2 className={styles.title}>Lista de Sócios</h2>
+
+        <div className={styles.listContainer}>
+          {sortedLinks.map((item) => (
+            <div key={item.id} className={styles.listItem}>
+              <div className={styles.avatar}>
+                {item.name.charAt(0).toUpperCase()}
+              </div>
+              <div className={styles.info}>
+                <h3 className={styles.name}>{item.name}</h3>
+                <p className={styles.code}>Cód. {item.numero}</p>
+              </div>
+            </div>
+          ))}
+
+          {sortedLinks.length === 0 && (
+            <p className={styles.empty}>Nenhum sócio cadastrado.</p>
+          )}
+        </div>
+      </main>
+    </div>
+  );
 }
